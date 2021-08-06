@@ -1,16 +1,19 @@
+import { ActionType } from "../action-types";
 import { Action } from "../actions";
 
 const INITIAL_STATE = 0;
 
-export const bankReducer = (state: number = INITIAL_STATE, action: Action) => {
+const bankReducer = (state: number = INITIAL_STATE, action: Action) => {
     switch (action.type) {
-        case "DEPOSIT":
+        case ActionType.DEPOSIT:
             return state + action.payload;
-        case "WITHDRAW":
+        case ActionType.WITHDRAW:
             return state - action.payload;
-        case "BANKRUPT":
+        case ActionType.BANKRUPT:
             return 0;
         default:
             return state;
     }
 };
+
+export default bankReducer;
